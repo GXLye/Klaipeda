@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Klapeda Library - Cleric Build</title>
+  
+  <!-- Include jQuery -->
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+
+  <!-- Custom Fonts -->
+  <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+  
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <style type='text/css'>
+
+    body {
+     background-color: #FFF;  
+     color: #4A4A4A;
+     font-family: Open Sans,"Helvetica Neue",Helvetica,Arial,sans-serif;
+ }
+
+ h1 {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+h2, h3 {
+    font-family: Open Sans,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 30px;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+h3 {
+    font-weight: 300;
+    color: #A4A4A4;
+}
+
+#wrapper {
+    width: 100%;
+    margin: auto auto;        
+    background: #fff;
+}
+
+#wrap {
+ margin: auto;        
+ background: #fff;
+ margin-top: 50px;
+ padding-top: 50px;
+ width: 700px;
+}
+
+.content-section {
+ margin-top: 50px;
+ padding-top: 50px;
+}
+
+#header {
+ background-color: #666;
+ color: #FFF;
+ margin: auto;
+ width: 100%;
+ height: 260px;
+ background: url(../img/intro-bg.jpg) repeat-x bottom center;
+ background-attachment: fixed;
+}
+
+#logo {
+ font-size: 16px;
+ font-weight: 700;
+ text-transform: uppercase;
+ font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+ line-height: 40px;    
+ padding: 20px;
+}
+
+.light {
+    font-weight: 400;
+}
+
+#nav .overlay {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    margin-top: 100px;
+}
+
+.navbg {
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    background: url(../img/intro-bg.jpg) repeat-x bottom center scroll;
+    background-attachment: fixed;
+    background-color: #000;
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    background-attachment: fixed;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.blurred, .blurredhead {
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    background: url(../img/blur-bg.jpg) repeat-x bottom center scroll;
+    background-attachment: fixed;
+    opacity: 0;
+}
+
+#navWrap {
+    margin: auto;
+    width: 700px;
+}
+
+#nav {
+    width: 100%;
+    height: 220px;
+}
+
+#nav .icon {
+    position: absolute;
+    margin-top: 165px;
+    margin-left: 45%;
+    margin-right: auto;
+    height: 80px;
+    width: 80px;
+
+}
+
+#nav h1 {
+    position: absolute;
+    color: #fff;
+    margin-top: 50px;
+    width: 70%;
+}
+
+@media(max-width:1080px) {
+    #nav {
+        height: 180px;
+    }
+
+    #nav h1 {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+
+    #nav .overlay {
+        height: 110px;
+    }
+
+    .navbg, .blurred {
+        height: 180px;
+    }
+
+    #nav .icon {
+        margin-top: 140px;
+    }
+    }
+
+#nav ul {
+ margin: 0;
+ padding: 5px;    
+}
+#nav li {
+ float: left;
+ padding: 3px 8px;
+ margin: 0 10px 0 0;
+ color: #fff;
+ list-style-type: none;
+}
+#nav li a {
+ color: #fff;  
+ text-decoration: none;    
+}
+#nav li a:hover {
+ text-decoration: underline;   
+}
+br.clearLeft {
+ clear: left;        
+}​
+
+</style>
+
+
+
+<script type='text/javascript'>
+    $(function() {
+    // Stick the #nav to the top of the window
+    var nav = $('#nav');
+    var navHomeY = nav.offset().top;
+    var isFixed = false;
+    var $w = $(window);
+    $w.scroll(function() {
+        var scrollTop = $w.scrollTop();
+        var shouldBeFixed = scrollTop > navHomeY;
+        if (shouldBeFixed && !isFixed) {
+            nav.css({
+                position: 'fixed',
+                top: 0,
+                left: nav.offset().left
+            });
+            isFixed = true;
+        }
+        else if (!shouldBeFixed && isFixed)
+        {
+            nav.css({
+                position: 'static'
+            });
+            isFixed = false;
+        }
+    });
+}); 
+
+(function() {
+  $(window).scroll(function() {
+    var oVal;
+    oVal = $(window).scrollTop() / 240;
+    if (oVal <= 0.8) {
+        $(".blurredhead").css("opacity", oVal);
+    return $(".blurred").css("opacity", oVal);
+} else {
+
+    return $(".blurred").css("opacity", 0.8);
+}
+    
+  });
+
+}).call(this);
+</script>
+
+
+</head>
+<body>
+
+
+    <!-- The header code, including the menu -->
+    <div id="header">
+        <div class="blurredhead"></div>
+        <div id="logo" class="container">
+            <i class="fa fa-university"></i>  <span class="light">Klaipeda</span> Library
+        </div>
+        <div id="nav">
+
+        <div class="navbg"></div>
+        <div class="blurred"></div>
+
+            <img class="overlay" src="../img/overlay.png">
+            <img class="icon" src="../img/cleric_class_icon0.png">
+            <div class="container">
+                <h1>Enlightened Billionaire for Cleric for 3 Circles in 6 ranks</h1>
+                <br class="clearLeft" />
+            </div>
+        </div>
+    </div>
+
+    <!-- The main page content -->
+    <div class="container content-section">
+        <h1>This is a test statement</h1>
+        <h2>This is a test statement</h2>
+        <h3>This is a test statement</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta justo in tellus porttitor non placerat dui pulvinar. Aliquam erat volutpat. Morbi ullamcorper libero sit amet tortor porta iaculis. Duis sit amet diam dolor. Mauris bibendum pharetra justo, sed ornare arcu scelerisque vitae. Integer molestie dignissim lacinia. Etiam sagittis consectetur iaculis. Pellentesque fringilla nulla at tortor dictum lobortis.
+        </p>
+        <p>
+            Aliquam erat volutpat. Integer pulvinar dignissim lacus eu lacinia. Sed vitae orci eget nisl ultricies feugiat quis ut velit. Sed urna mauris, viverra volutpat pulvinar et, tempus vel odio. Aenean at posuere massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis augue nisi, quis ornare nisl. Nulla sagittis neque at massa venenatis tincidunt. Morbi sed nibh magna, vel consectetur nisi. Nullam tortor augue, scelerisque et consequat eu, fermentum at eros. Donec scelerisque ullamcorper tincidunt.
+        </p>
+
+        <h3>This is a test statement</h3>
+        <p>
+            Pellentesque ut nulla dolor. Sed non diam odio, ac luctus mauris. Nunc erat turpis, imperdiet vel laoreet laoreet, scelerisque vel dui. Sed nec nisl nulla, ut gravida neque. Mauris augue nibh, accumsan id viverra et, pellentesque a orci. Integer venenatis congue urna a ornare. Fusce in facilisis tortor. In lobortis est non lacus cursus venenatis. Donec a metus erat, id rhoncus turpis. Quisque vitae venenatis tellus. Donec quis risus erat, in luctus justo. Nulla ultrices, urna quis faucibus vehicula, lorem nibh tristique magna, nec tristique augue massa sit amet arcu. Donec malesuada, erat iaculis pretium ultricies, lorem nisl lacinia tellus, vel luctus augue nunc eget metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque dignissim, orci ut ultrices aliquet, enim nisl auctor magna, nec feugiat eros lorem vehicula ipsum.
+        </p>
+        <p>
+            Maecenas vitae mauris enim, vel pretium turpis. Sed pharetra accumsan tellus. Maecenas pulvinar ipsum viverra sapien volutpat blandit. Vivamus vel massa velit. Pellentesque condimentum tincidunt aliquam. Vivamus mattis auctor diam, eu commodo massa laoreet ut. Sed congue faucibus arcu, quis hendrerit nisl pellentesque non. Nunc sagittis condimentum lacus. Cras tincidunt sem quis lorem tempor eget porta magna pulvinar. Donec molestie diam sagittis sem tristique in iaculis ligula aliquet. Aenean rutrum eleifend metus nec tempus. Integer nisi ligula, pretium in porta vel, euismod non lectus. Aliquam erat volutpat. Praesent sit amet massa purus.
+        </p>
+
+        <h2>This is a test statement</h2>
+        <p>
+            Ut pellentesque, lectus ut porttitor ullamcorper, velit nulla dignissim tellus, eu luctus nibh mauris non arcu. Mauris viverra purus et leo condimentum adipiscing. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum facilisis lacus, quis rutrum purus tristique non. Nam vestibulum mauris eu sem porttitor accumsan. Phasellus at eleifend neque. Nam interdum ultrices commodo. Nunc dignissim aliquet dui. Nunc id nisl congue dolor pharetra pulvinar vel ac lectus. Nunc mi justo, semper id sollicitudin et, luctus eget quam. Ut condimentum porta consectetur. Donec nunc turpis, molestie ac semper ut, aliquet id nulla. Vestibulum id ipsum purus, sed tempor lacus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </p>
+
+        <h3>This is a test statement</h3>
+        <p>
+            Aliquam erat volutpat. Duis euismod porta eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque porta tincidunt gravida. Praesent sed mi nisl, non pretium mi. Suspendisse nibh orci, mollis eget adipiscing id, malesuada quis enim. Nullam facilisis elit ut magna facilisis ac eleifend diam tempor. Curabitur et justo est, a sagittis velit. Proin mollis, libero ac luctus faucibus, ipsum risus consequat dolor, viverra sagittis felis lorem non quam. Nam risus nisl, congue a semper eu, dapibus ac nunc. Maecenas tortor nisl, pellentesque eu luctus at, viverra ut libero. Nullam quis egestas massa. Donec dapibus rhoncus risus nec tincidunt. Suspendisse condimentum ante sit amet odio consequat id suscipit ante tempus. Aenean purus leo, blandit a iaculis non, tristique ullamcorper ante.
+        </p>
+        <p>
+            Phasellus consectetur, ante nec pretium hendrerit, arcu nunc ullamcorper lectus, non pulvinar sapien nibh ac sem. Nullam dignissim erat sit amet sapien convallis ornare. In hac habitasse platea dictumst. Fusce et ante ut turpis condimentum dictum. Mauris elit justo, laoreet eget consectetur sed, suscipit ut augue. Phasellus id sollicitudin enim. Aenean et justo magna, in ultricies lectus. Nunc blandit quam rhoncus quam pretium tempor. Aenean nec fermentum nibh. Donec ornare magna nec leo tempus ac varius tortor hendrerit. Ut vel erat purus. Maecenas volutpat convallis est a sagittis.
+        </p>
+        <p>
+            Duis mattis orci at justo molestie blandit. Nunc blandit tortor vitae ipsum congue ut pharetra nibh accumsan. Phasellus dapibus risus sed purus laoreet mattis. Ut placerat imperdiet diam, ut blandit dolor auctor vel. Nunc in odio quis eros fringilla consectetur. Ut porttitor imperdiet arcu nec ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis hendrerit felis id mauris pulvinar faucibus sodales magna dictum.
+        </p>
+        <p>
+            Mauris in tincidunt ante. Donec fermentum varius interdum. Nulla consectetur faucibus purus, eu interdum nulla aliquet eu. Cras id lectus lacus, eleifend rhoncus lorem. Integer malesuada tristique lobortis. Phasellus a dolor non turpis euismod euismod vel a enim. Duis eu augue a elit commodo pellentesque. Ut dolor odio, ornare ac faucibus sed, tincidunt vel ipsum. Nunc et nibh eros, ut vehicula massa. Donec tempus, augue vel consequat adipiscing, nibh lacus mollis nunc, egestas commodo nisi quam sed orci.
+        </p>
+        
+        <h3>This is a test statement</h3>
+        <p>
+            Maecenas sit amet tortor nunc. Donec nec tempor augue. Mauris mi dolor, dictum et dictum a, tincidunt sit amet sapien. Nunc dapibus nunc nec arcu tristique sit amet consectetur libero eleifend. Suspendisse dignissim massa eu neque lacinia tincidunt. Vivamus vel nisl eu nulla convallis pretium. Nunc ante justo, hendrerit a malesuada vitae, semper a risus. Nunc viverra purus quis lorem cursus quis ultrices mauris ullamcorper. Pellentesque luctus, nibh vel elementum facilisis, nisi turpis aliquet augue, et feugiat nisi massa sed risus. Aenean dui velit, molestie placerat euismod vel, sodales at mauris. Donec leo felis, eleifend nec placerat sed, placerat vulputate libero.
+        </p>
+        <p>
+            Nullam in mauris eleifend lorem mollis facilisis dapibus vel felis. Morbi pharetra euismod semper. Vivamus mollis gravida imperdiet. Proin mattis, nulla sed lobortis tincidunt, mauris dui suscipit dolor, sed fermentum nisi orci eget neque. Ut mattis leo eu dolor fringilla eu auctor tortor blandit. Mauris eleifend risus nec felis elementum mattis. Nulla rhoncus ante quam, eu eleifend leo. Aliquam euismod felis in nunc suscipit congue. Sed facilisis sapien a erat posuere ac facilisis lectus cursus. Praesent nulla felis, placerat nec lacinia sit amet, laoreet eget odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent non urna mattis dui porttitor egestas at sed tellus. Integer id commodo quam. Nullam fermentum, velit nec sagittis placerat, magna nibh posuere dolor, vel dictum mi tortor et dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean iaculis, orci eu pulvinar pulvinar, tellus nisl luctus lectus, ac scelerisque leo purus non eros.
+        </p>
+    </div>
+</body>
+</html>
